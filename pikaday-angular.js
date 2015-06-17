@@ -13,21 +13,21 @@
 }(this, function (angular, Pikaday) {
 
   angular.module('pikaday', [])
-    .provider('pikadayConfig', function pikadayProviderFn() {
+      .provider('pikadayConfig', function pikadayProviderFn() {
 
-      // Create provider with getter and setter methods, allows setting of global configs
+        // Create provider with getter and setter methods, allows setting of global configs
 
-      var config = {};
+        var config = {};
 
-      this.$get = function() {
-        return config;
-      };
+        this.$get = function() {
+          return config;
+        };
 
-      this.setConfig = function setConfig(configs) {
-        config = configs;
-      };
-    })
-    .directive('pikaday', ['pikadayConfig', pikadayDirectiveFn]);
+        this.setConfig = function setConfig(configs) {
+          config = configs;
+        };
+      })
+      .directive('pikaday', ['pikadayConfig', pikadayDirectiveFn]);
 
   function pikadayDirectiveFn(pikadayConfig) {
 
@@ -35,7 +35,7 @@
 
       restrict: 'A',
       scope: {
-        pikaday: '=', onSelect: '&', onOpen: '&', onClose: '&', onDraw: '&', disableDayFn: '&'
+        pikaday: '=', onSelect: '&', onOpen: '&', onClose: '&', onDraw: '&', onInvalid: '&', disableDayFn: '&'
       },
       link: function (scope, elem, attrs) {
 
@@ -86,6 +86,7 @@
             case "onOpen":
             case "onClose":
             case "onDraw":
+            case "onInvalid":
             case "disableDayFn":
 
               config[attr] = function (date) {

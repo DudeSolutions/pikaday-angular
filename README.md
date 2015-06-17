@@ -42,7 +42,7 @@ angular.module('YourApp')
 
 ## <a name="functions"></a>Functions
 
-Pikaday has several events you can bind callbacks to: `onSelect`, `onOpen`, `onClose`, `onDraw`, and `disableDayFn`. Callbacks can be passed two optional, predefined parameters in the function expression:
+Pikaday has several events you can bind callbacks to: `onSelect`, `onOpen`, `onClose`, `onDraw`, `onInvalid`, and `disableDayFn`. Callbacks can be passed two optional, predefined parameters in the function expression:
 
 Option        | Type            | Description
 ------------- | -------------   | ------------
